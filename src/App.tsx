@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import "./App.css";
-import { fetchWeather } from "./api/fetchWeather";
-import { WeatherResponse } from "./Types/types";
-import { BiCloud, BiSun } from "react-icons/bi";
 import { BsDroplet } from "react-icons/bs";
 import { FaTemperatureHigh } from "react-icons/fa";
+import { fetchWeather } from "./api/fetchWeather";
+import "./App.css";
+import { WeatherResponse } from "./Types/types";
 
 function App() {
   const [query, setquery] = useState("");
