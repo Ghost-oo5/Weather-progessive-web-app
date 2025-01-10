@@ -31,8 +31,12 @@ function App() {
         />
         <div className="weather mt-10">
           {weather && (
-            <div className="max-w-sm p-6 bg-white border flex flex-col pt-16 items-start justify-center border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <div className="w-full items-center justify-center flex flex-col">
+            <div className="max-w-sm px-6 bg-white border flex flex-col  items-start justify-center border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div className="w-full items-center p-0 m-0 justify-center flex flex-col">
+              <div className="mb-10">
+                  <img className="city-icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
+                  <p>{weather.weather[0].description}</p>
+                  </div>
                 <div className="flex mb-5">
                   <a href="#">
                     <h5 className="mb-2 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -57,9 +61,7 @@ function App() {
                 <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
                    Feels like: {weather.main.feels_like}
                   </p>
-                  <div className="info">
-                  <img className="city-icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
-                  </div>
+                 
               </div>
             </div>
           )}
