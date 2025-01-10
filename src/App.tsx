@@ -4,6 +4,7 @@ import { fetchWeather } from "./api/fetchWeather";
 import { WeatherResponse } from "./Types/types";
 import { BiCloud, BiSun } from "react-icons/bi";
 import { BsDroplet } from "react-icons/bs";
+import { FaTemperatureHigh } from "react-icons/fa";
 
 function App() {
   const [query, setquery] = useState("");
@@ -20,14 +21,15 @@ function App() {
     <>
       <div className="main-container">
         <input
+        
           type="text"
-          className="search"
+          className="search p-2 rounded-lg"
           placeholder="Search..."
           value={query}
           onChange={(e) => setquery(e.target.value)}
           onKeyPress={search}
         />
-        <div className="weather">
+        <div className="weather mt-10">
           {weather && (
             <div className="max-w-sm p-6 bg-white border flex flex-col items-start justify-center border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               {weather.clouds.all && (
@@ -37,20 +39,24 @@ function App() {
                 <BiSun/>
               )}
               <a href="#">
-                <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-2 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
                   {weather.name}
                 </h5>
               </a>
               <div className="flex justify-between w-full">
-                <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
-                 Feels like: {weather.main.feels_like}
+                
+                <p className="mb-3 font-normal items-center flex text-gray-500 dark:text-gray-400">
+                  <FaTemperatureHigh className="mr-1"/>
+                 Temprature: {weather.main.temp}
                 </p>
                 <p className="mb-3 font-normal items-center flex text-gray-500 dark:text-gray-400">
                   <BsDroplet className="mr-1"/>
                  humidity: {weather.main.humidity}
                 </p>
               </div>
-             
+              <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">
+                 Feels like: {weather.main.feels_like}
+                </p>
             </div>
           )}
         </div>
